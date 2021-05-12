@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- saved from url=(0218)https://cphmed.com/qr/verify.php?id=Af8pIsM3oGBNgTu2qkRGLa4eiD2P0Xzk26Z0371n1qBSMbDvkLaNY0BdPPb3jw7I8K43HDI5IQOxS9tx%2FS20sq6HF2A6nXW1%2B98POCkOY7KOnn6NczMoU4bgopB7l8LCjLCjrK4ueNOP2QFSDkaJaXJwonOL2j%2Fow%2FkoN66HmjE%3D -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Cphmed Test Check</title>
+<link rel="stylesheet" href="./style.css">
+<script src="./moment-with-locales.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sugar/2.0.6/sugar.min.js"></script>
+<script src="./moment-timezone-with-data.js"></script></head>
+<body data-new-gr-c-s-check-loaded="14.1010.0" data-gr-ext-installed="">
+<header><img src="./logo.png"></header>
+<div class="result negative"><span>Negative</span>
+<p class="timer">Udløber om <span id="demo"></span></p> </div>
+<div class="name-block"><span class="person-name" id="name"></span>
+<span class="time">2021-05-12 16:21:59</span>
+<span class="result-txt">Negative</span>
+</div>
+<script>
+Sugar.extend();
+    var testDate = new Date().addDays(-1).addHours(-2).getTime();
+    var countDownDate = new Date(testDate).addHours(72);
+    document.getElementById("demo").innerHTML = testDate.format('{yyyy}-{MM}-{dd} {hh}:{mm}:{ss}');
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const name = urlParams.get('name') || queryString.split('=')[1];
+    document.getElementById("name").innerHTML = name;
+    
+    var x = setInterval(function () {
+        var now = new Date().getTime();
+        var distance = countDownDate - now;
+        var hours = Math.floor(distance / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        if (hours < 10) {
+            hours = "0" + hours;
+        }
+        if (minutes < 10) {
+            minutes = "0" + minutes;
+        }
+        if (seconds < 10) {
+            seconds = "0" + seconds;
+        }
+        document.getElementById("demo").innerHTML = hours + ":" + minutes + ":" + seconds;
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = testDate;
+        }
+    }, 100);
+</script>
+
+
+</body></html>
